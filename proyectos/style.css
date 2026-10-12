@@ -343,6 +343,127 @@ nav a:hover{
     line-height: 1.7;
 }
 
+#planes {
+    padding: 80px 20px;
+    background: #111;
+}
+
+.planes-contenedor {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.planes-contenedor h2 {
+    color: #d4af37;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.planes-subtitulo {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #aaa;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.planes-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 25px;
+}
+
+.plan-card {
+    position: relative;
+    min-width: 0;
+    padding: 32px 26px;
+    border: 1px solid #333;
+    border-radius: 15px;
+    background: #1a1a1a;
+    transition: 0.3s;
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+    border-color: #d4af37;
+}
+
+.plan-destacado {
+    border-color: #d4af37;
+}
+
+.plan-etiqueta {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #d4af37;
+    color: #111;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.plan-card h3 {
+    color: #d4af37;
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+}
+
+.plan-precio {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.plan-entrega {
+    margin-top: -8px;
+    margin-bottom: 18px;
+    color: #d4af37;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.plan-descripcion {
+    min-height: 3.4em;
+    margin-bottom: 22px;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.plan-card ul {
+    display: grid;
+    gap: 12px;
+    padding-left: 20px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.plan-card li::marker {
+    color: #d4af37;
+}
+
+.planes-notas {
+    max-width: 850px;
+    margin: 12px auto 0;
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.planes-plazos-nota {
+    max-width: 850px;
+    margin: 28px auto 0;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
 #contacto {
     padding: 80px 20px;
     text-align: center;
@@ -387,14 +508,14 @@ nav a:hover{
     display: inline-block;
     padding: 10px 20px;
     border-radius: 8px;
-    background: #00aaff;
-    color: white;
+    background: #d4af37;
+    color: #111;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .contacto-card a:hover {
-    background: #0088cc;
+    background: #f2c94c;
 }
 
 
@@ -404,8 +525,24 @@ nav a:hover{
 
 @media (max-width: 800px) {
 
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
     .proyectos {
         grid-template-columns: 1fr;
+    }
+
+    .planes-tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     #proyectos h2,
@@ -427,18 +564,6 @@ nav a:hover{
 @media (max-width: 600px) {
     header {
         padding: 18px 20px;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 18px;
     }
 
     #inicio {
@@ -470,10 +595,47 @@ nav a:hover{
         height: 180px;
         font-size: 58px;
     }
+
+    #planes {
+        padding: 65px 20px;
+    }
+
+    .planes-contenedor h2 {
+        font-size: 32px;
+    }
+
+    .planes-tarjetas {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .plan-destacado {
+        grid-column: auto;
+    }
+
+    .plan-descripcion {
+        min-height: 0;
+    }
 }
 
 a:focus-visible,
 button:focus-visible {
     outline: 3px solid #00aaff;
     outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .proyectos-card:hover,
+    .servicio-card:hover,
+    .plan-card:hover,
+    .contacto-card:hover {
+        transform: none;
+    }
 }
